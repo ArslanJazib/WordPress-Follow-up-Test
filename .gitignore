@@ -1,0 +1,57 @@
+# Ignore everything in wp-content except your custom theme
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/ct-custom/
+
+# Ignore uploads, plugins, other themes
+wp-content/uploads/
+wp-content/plugins/
+wp-content/mu-plugins/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/languages/
+
+# Ignore WordPress core files
+!wp-content/index.php
+wp-admin/
+wp-includes/
+*.html
+license.txt
+readme.html
+xmlrpc.php
+wp-*.php
+*.sql
+
+# Ignore system files
+*.log
+*.sql
+*.tar.gz
+*.zip
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# Ignore Composer & NPM dependencies (if any)
+vendor/
+node_modules/
+
+# Ignore build tools output
+/public/build
+/public/hot
+/public/storage
+
+# Ignore environment config
+.env
+.env.*
+*.local
+*.lock
+
+# Ignore backup files
+*.bak
+*.swp
+*.tmp
