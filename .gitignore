@@ -16,7 +16,6 @@ wp-content/languages/
 !wp-content/index.php
 wp-admin/
 wp-includes/
-*.html
 license.txt
 readme.html
 xmlrpc.php

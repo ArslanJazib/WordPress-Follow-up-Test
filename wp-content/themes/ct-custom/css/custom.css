@@ -1,0 +1,333 @@
+/* === Base Typography & Layout === */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.text-orange { color: #f05a00; }
+.bg-orange { background-color: #f05a00; }
+
+.section-heading {
+  text-transform: uppercase;
+}
+
+/* === Buttons === */
+.btn-orange,
+.wpcf7-submit,
+.wpcf7-form .btn-orange {
+  background-color: #f05a00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-orange:hover,
+.wpcf7-submit:hover,
+.wpcf7-form .btn-orange:hover {
+  background-color: #d94f00;
+}
+
+.btn-left {
+  text-align: left;
+  display: block;
+  width: 20%;
+}
+
+/* === Top Bar === */
+.top-bar {
+  background-color: #f05a00;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+.top-bar .call-text {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.top-bar .top-menu {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar .top-menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+.top-bar .top-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background-color 0.2s ease-in-out;
+  padding: 2px 6px;
+}
+
+.top-bar .top-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.alt-label { color: darkslategray; }
+
+#menu-top-menu li:first-child span {
+  color: darkslategray;
+}
+
+/* === Header / Navbar === */
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-logo img {
+  max-height: 60px;
+}
+
+.navbar-nav {
+  gap: 1rem;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-item.active .nav-link {
+  color: #f05a00;
+  border-bottom: 2px solid #f05a00;
+}
+
+/* === Dropdown menus (2nd level) === */
+.navbar-nav .dropdown-menu {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+}
+
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Submenu items */
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f05a00;
+  color: #fff;
+}
+
+/* === Sub-submenu (3rd level, stacked vertically) === */
+.dropdown-submenu {
+  position: relative;
+}
+
+/* Show stacked below, not beside */
+.dropdown-submenu > .dropdown-menu {
+  position: static !important;
+  display: none;
+  margin-left: 0;
+  margin-top: 0;
+  padding-left: 1rem;
+  border-left: 2px solid #eee;
+}
+
+/* Show on hover */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+/* === Breadcrumb === */
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+/* === Footer === */
+footer {
+  padding: 2rem 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* === Social Icons === */
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.2s ease-in-out;
+}
+
+.social-icons a:hover { color: #f05a00; }
+
+.social-icons i {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+}
+
+/* === Contact Form (CF7) === */
+.wpcf7-form {
+  margin: 0;
+  padding: 0;
+}
+
+.wpcf7-form p {
+  margin-bottom: 1rem;
+}
+
+.wpcf7-form-control,
+.wpcf7-form .form-control {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.wpcf7-form-control:focus {
+  border-color: #f05a00;
+  box-shadow: 0 0 0 2px rgba(240, 90, 0, 0.2);
+}
+
+/* Contact Form Layout */
+.wpcf7-form .row-two {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.wpcf7-form .row-two p {
+  flex: 1;
+  margin: 0;
+}
+
+/* Contact Section */
+.contact-section h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-section form {
+  background-color: #f9f9f9;
+  padding: 1rem;
+}
+
+.contact-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* === CF7 Response Messages === */
+.wpcf7-response-output {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.wpcf7-mail-sent-ok {
+  border: 1px solid #4caf50;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.wpcf7-validation-errors,
+.wpcf7-mail-sent-ng {
+  border: 1px solid #f44336;
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* === Responsive === */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #fff;
+    padding: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+
+  .navbar-nav .sub-menu {
+    position: static;
+    display: none !important;
+  }
+
+  .navbar-nav .menu-item-has-children.open > .sub-menu {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .top-bar .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .contact-section .row > div {
+    margin-bottom: 2rem;
+  }
+
+  .wpcf7-form .row-two {
+    flex-direction: column;
+  }
+}

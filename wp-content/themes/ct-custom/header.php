@@ -21,38 +21,78 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ct-custom' ); ?></a>
+<?php wp_body_open(); ?>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+<div id="page" class="site-wrapper">
+
+	<!-- Top Bar (Secondary Menu) -->
+	<div class="top-bar bg-orange text-white py-1">
+		<div class="container d-flex justify-content-between align-items-center flex-wrap">
+			<div class="call-text small">
+				<span class="fw-bold alt-label">CALL US NOW!</span>
+				<span class="ms-2"><?php echo get_option('theme_phone'); ?></span>
+			</div>
+			<div class="top-menu small">
 				<?php
-			else :
+				wp_nav_menu([
+					'theme_location' => 'top-menu',
+					'menu_class' => 'list-inline mb-0 top-nav',
+					'container' => false,
+					'depth' => 1,
+					'fallback_cb' => false,
+					'link_before' => '<span>',
+					'link_after' => '</span>',
+					'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				]);
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Header with Logo and Primary Nav -->
+	<header id="masthead" class="site-header bg-light py-3 border-bottom">
+		<div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+			<!-- Logo Area -->
+			<div class="site-logo">
 				<?php
-			endif;
-			$ct_custom_description = get_bloginfo( 'description', 'display' );
-			if ( $ct_custom_description || is_customize_preview() ) :
+				$logo_url = get_option('theme_logo');
+				if ( $logo_url ) :
 				?>
-				<p class="site-description"><?php echo $ct_custom_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+					<a href="<?php echo esc_url(home_url('/')); ?>">
+						<img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-height: 60px;">
+					</a>
+				<?php else : ?>
+					<a href="<?php echo esc_url(home_url('/')); ?>" class="site-title fw-bold text-dark text-decoration-none">
+						<?php bloginfo('name'); ?>
+					</a>
+				<?php endif; ?>
+			</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ct-custom' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<!-- Primary Navigation -->
+			<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-	<div id="content" class="site-content">
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<?php
+					wp_nav_menu([
+						'theme_location' => 'primary-menu',
+						'container'      => false,
+						'menu_class'     => 'navbar-nav ms-auto',
+						'fallback_cb'    => false,
+						'depth'          => 3,
+						'walker'         => new Custom_Nav_Walker()
+					]);
+				?>
+				</div>
+			</div>
+			</nav>
+
+		</div>
+	</header>
+
+	<!-- Main Content Wrapper -->
+	<main id="content" class="site-content mt-4">
